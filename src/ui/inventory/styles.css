@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: #0f1419;
+  color: #e8eaed;
+}
+
+.app {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background: #4c9aff;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background: #3d8aef;
+}
+
+.loading {
+  text-align: center;
+  padding: 4rem;
+  color: #9aa0a6;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section {
+  background: #1e2732;
+  border: 1px solid #2d3748;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+.section h2 {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  color: #e8eaed;
+}
+
+.data-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.data-card {
+  background: #131920;
+  border: 1px solid #2d3748;
+  border-radius: 6px;
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: border-color 0.2s;
+}
+
+.data-card:hover {
+  border-color: #4c9aff;
+}
+
+.data-card h3 {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge-active {
+  background: #1a4d2e;
+  color: #4ade80;
+}
+
+.badge-pending {
+  background: #4a3810;
+  color: #fbbf24;
+}
+
+.badge-completed {
+  background: #1e3a8a;
+  color: #60a5fa;
+}

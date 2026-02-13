@@ -1,227 +1,174 @@
-> **🚀 Don't want to self-host?** [Join the waitlist for our fully managed solution →](https://mcpengage.com/fieldedge)
-> 
-> Zero setup. Zero maintenance. Just connect and automate.
+# FieldEdge MCP Server
 
----
+Complete MCP server for FieldEdge field service management platform with 87+ tools and 16 React apps.
 
-# 🚀 FieldEdge MCP Server — 2026 Complete Version
+## Features
 
-## 💡 What This Unlocks
+### 87+ Tools Across 13 Domains
 
-**This MCP server gives AI direct access to your entire FieldEdge workspace.** Instead of clicking through interfaces, you just *tell* it what you need — and AI handles field service operations, work order management, and customer data at scale.
+- **Customer Management** (10 tools): Create, update, search customers, manage balances, view history
+- **Job Management** (9 tools): Full CRUD operations, start/complete/cancel jobs, assign technicians
+- **Invoice Management** (9 tools): Create, send, void invoices, record payments, generate PDFs
+- **Estimate Management** (8 tools): Create quotes, send to customers, approve, convert to invoices
+- **Equipment Management** (7 tools): Track equipment, service history, schedule maintenance
+- **Technician Management** (9 tools): Manage technicians, schedules, availability, time tracking
+- **Scheduling & Dispatch** (8 tools): Create appointments, dispatch board, route optimization
+- **Inventory Management** (7 tools): Track parts, adjust quantities, low stock alerts
+- **Payment Management** (5 tools): Process payments, refunds, payment history
+- **Reporting & Analytics** (8 tools): Revenue, productivity, aging receivables, satisfaction metrics
+- **Location Management** (5 tools): Manage customer service locations
+- **Service Agreements** (6 tools): Maintenance contracts, renewals, cancellations
+- **Task Management** (6 tools): Follow-ups, to-dos, task completion
 
-### ⚡ Field Service Power Moves
+### 16 React MCP Apps
 
-Real automation that HVAC, plumbing, and electrical contractors actually use:
+Modern dark-themed React applications built with Vite:
 
-1. **Smart Dispatch** — *"Show me all open work orders for tomorrow, find available techs, and assign HVAC jobs to certified technicians"*
-2. **Customer Intelligence** — *"Pull all customers with equipment due for maintenance this month and create preventive service work orders"*
-3. **Revenue Analysis** — *"List invoices from Q1, break down by service type, and show which equipment categories generate the most revenue"*
-4. **Rapid Quoting** — *"Get all work orders marked as 'estimate needed,' pull equipment specs from customer locations, and draft service proposals"*
-5. **Equipment Tracking** — *"Show all HVAC units installed in 2020-2021 that haven't had service in 12+ months and create follow-up tasks"*
+1. **Dashboard** - Key metrics and recent activity
+2. **Customer Management** - Browse and manage customers
+3. **Job Management** - View and manage jobs/work orders
+4. **Scheduling & Dispatch** - Dispatch board and appointment scheduling
+5. **Invoice Management** - Create and manage invoices
+6. **Estimate Management** - Create and manage quotes
+7. **Technician Management** - Manage technicians and schedules
+8. **Equipment Management** - Track customer equipment
+9. **Inventory Management** - Parts and equipment inventory
+10. **Payment Management** - Process payments
+11. **Service Agreements** - Maintenance contracts
+12. **Reports & Analytics** - Business reports
+13. **Task Management** - Follow-ups and to-dos
+14. **Calendar View** - Appointment calendar
+15. **Map View** - Geographic view of jobs
+16. **Price Book** - Service and part pricing
 
-### 🔗 The Real Power: Combining Tools
-
-AI can chain multiple FieldEdge operations together:
-
-- Query work orders → Filter by technician availability → Auto-schedule → Notify customer
-- Search equipment records → Check warranty status → Generate service recommendations
-- Analyze customer history → Identify upsell opportunities → Create follow-up jobs
-- Pull invoice data → Export to accounting → Generate financial reports
-
-## 📦 What's Inside
-
-**7 Field Service API Tools** covering work order management, dispatching, invoicing, and customer data:
-
-- `list_work_orders` — Query work orders by status, customer, technician, date range
-- `get_work_order` — Get full work order details (line items, equipment, schedule)
-- `create_work_order` — Create new service jobs with priority, scheduling, and tech assignment
-- `list_customers` — Search and retrieve customer records
-- `list_technicians` — Get technician/employee roster with availability and departments
-- `list_invoices` — Pull invoicing data by status, customer, and date range
-- `list_equipment` — Track HVAC units, appliances, and equipment at customer sites
-
-All with proper error handling, automatic authentication, and TypeScript types.
-
-## 🚀 Quick Start
-
-### Option 1: Claude Desktop (Local)
-
-1. **Clone and build:**
-   ```bash
-   git clone https://github.com/BusyBee3333/FieldEdge-MCP-2026-Complete.git
-   cd fieldedge-mcp-2026-complete
-   npm install
-   npm run build
-   ```
-
-2. **Get your FieldEdge API credentials:**
-   
-   - Log in to your FieldEdge account
-   - Navigate to Settings → API Keys
-   - Generate a new API key with appropriate permissions
-   - You'll receive an API key and subscription key (Azure API Management)
-   - See [FieldEdge API Documentation](https://api.fieldedge.com/docs) for details
-
-3. **Configure Claude Desktop:**
-   
-   On macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
-   
-   On Windows: `%APPDATA%\Claude\claude_desktop_config.json`
-
-   ```json
-   {
-     "mcpServers": {
-       "fieldedge": {
-         "command": "node",
-         "args": ["/ABSOLUTE/PATH/TO/fieldedge-mcp-2026-complete/dist/index.js"],
-         "env": {
-           "FIELDEDGE_API_KEY": "your-api-key-here",
-           "FIELDEDGE_SUBSCRIPTION_KEY": "your-subscription-key-here"
-         }
-       }
-     }
-   }
-   ```
-
-4. **Restart Claude Desktop**
-
-### Option 2: Deploy to Railway
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/fieldedge-mcp)
-
-1. Click the button above
-2. Set your FieldEdge API credentials in Railway dashboard
-3. Use the Railway URL as your MCP server endpoint
-
-### Option 3: Docker
+## Installation
 
 ```bash
-docker build -t fieldedge-mcp .
-docker run -p 3000:3000 \
-  -e FIELDEDGE_API_KEY=your-key \
-  -e FIELDEDGE_SUBSCRIPTION_KEY=your-subscription-key \
-  fieldedge-mcp
-```
-
-## 🔐 Authentication
-
-FieldEdge uses **API Key authentication** via Azure API Management.
-
-**API Base URL:** `https://api.fieldedge.com/v1`
-
-**Required Headers:**
-- `Authorization: Bearer YOUR_API_KEY`
-- `Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY`
-
-The MCP server handles authentication automatically once you provide credentials in your environment variables.
-
-**Getting credentials:**
-1. Log in to FieldEdge
-2. Settings → API Access
-3. Generate API Key + Subscription Key
-4. Set appropriate permissions (read/write for work orders, customers, etc.)
-
-See the official [FieldEdge API documentation](https://api.fieldedge.com/docs) for detailed authentication steps.
-
-## 🎯 Example Prompts for Field Service Pros
-
-Once connected to Claude, use natural language for HVAC, plumbing, electrical, and field service workflows:
-
-**Dispatching & Scheduling:**
-- *"Show me all open work orders scheduled for next week"*
-- *"List available technicians for tomorrow and show their current job assignments"*
-- *"Create an emergency HVAC repair work order for customer ID 12345 at their main location"*
-
-**Customer Management:**
-- *"Find customers in zip code 75001 who have HVAC equipment older than 10 years"*
-- *"Search for 'Johnson' in customer records and show their service history"*
-
-**Equipment & Maintenance:**
-- *"List all equipment at customer location X and show last service dates"*
-- *"Find HVAC units due for seasonal maintenance and create work orders"*
-
-**Invoicing & Revenue:**
-- *"Pull all paid invoices from last month and calculate total revenue"*
-- *"Show invoices over $5,000 that are still pending payment"*
-
-**Bulk Operations:**
-- *"For all customers with 'annual maintenance' contracts, check equipment records and schedule Q2 service visits"*
-- *"Export work order data for completed jobs last quarter and summarize by service type"*
-
-## 🛠️ Development
-
-### Prerequisites
-- Node.js 18+
-- npm or yarn
-- FieldEdge account with API access
-
-### Setup
-
-```bash
-git clone https://github.com/BusyBee3333/FieldEdge-MCP-2026-Complete.git
-cd fieldedge-mcp-2026-complete
 npm install
-cp .env.example .env
-# Edit .env with your FieldEdge credentials
-npm run build
-npm start
 ```
 
-### Testing
+## Configuration
+
+Create a `.env` file with your FieldEdge credentials:
+
+```env
+FIELDEDGE_API_KEY=your_api_key_here
+FIELDEDGE_API_URL=https://api.fieldedge.com/v1
+FIELDEDGE_COMPANY_ID=your_company_id
+FIELDEDGE_TIMEOUT=30000
+```
+
+## Usage
+
+### As MCP Server
+
+Add to your MCP settings:
+
+```json
+{
+  "mcpServers": {
+    "fieldedge": {
+      "command": "npx",
+      "args": ["-y", "@mcpengine/fieldedge-mcp-server"],
+      "env": {
+        "FIELDEDGE_API_KEY": "your_api_key"
+      }
+    }
+  }
+}
+```
+
+### Development
 
 ```bash
-npm test                  # Run all tests
-npm run test:watch        # Watch mode
-npm run test:coverage     # Coverage report
+# Build TypeScript
+npm run build
+
+# Watch mode
+npm run dev
+
+# Build React apps
+npm run build:ui
 ```
 
-## 🐛 Troubleshooting
+## API Coverage
 
-### "Authentication failed"
-- Verify both API key and subscription key are correct
-- Check that your keys haven't been revoked in FieldEdge settings
-- Ensure you have the necessary permissions for the operations you're attempting
-- Test credentials directly via [FieldEdge API docs](https://api.fieldedge.com/docs)
+The server provides comprehensive coverage of the FieldEdge API:
 
-### "Tools not appearing in Claude"
-- Restart Claude Desktop after updating config
-- Check that the path in `claude_desktop_config.json` is **absolute** (not relative)
-- Verify the build completed successfully (`dist/index.js` exists)
-- Check Claude Desktop logs (Help → View Logs)
+- Customer and contact management
+- Job/work order lifecycle management
+- Scheduling and dispatch operations
+- Invoicing and payment processing
+- Estimate/quote generation
+- Equipment and asset tracking
+- Inventory management
+- Technician management and time tracking
+- Service agreement management
+- Business reporting and analytics
 
-### "Rate limit exceeded"
-- FieldEdge enforces API rate limits
-- Implement pagination for large queries
-- Use date filters to reduce result sets
+## Architecture
 
-## 📖 Resources
+```
+src/
+├── clients/
+│   └── fieldedge.ts       # API client with auth, pagination, error handling
+├── types/
+│   └── index.ts           # TypeScript type definitions
+├── tools/
+│   ├── customers.ts       # Customer management tools
+│   ├── jobs.ts            # Job management tools
+│   ├── invoices.ts        # Invoice management tools
+│   ├── estimates.ts       # Estimate management tools
+│   ├── equipment.ts       # Equipment management tools
+│   ├── technicians.ts     # Technician management tools
+│   ├── scheduling.ts      # Scheduling and dispatch tools
+│   ├── inventory.ts       # Inventory management tools
+│   ├── payments.ts        # Payment management tools
+│   ├── reporting.ts       # Reporting and analytics tools
+│   ├── locations.ts       # Location management tools
+│   ├── service-agreements.ts  # Service agreement tools
+│   └── tasks.ts           # Task management tools
+├── ui/                    # React MCP apps (16 apps)
+│   ├── dashboard/
+│   ├── customers/
+│   ├── jobs/
+│   └── ...
+├── server.ts              # MCP server implementation
+└── main.ts                # Entry point
+```
 
-- [FieldEdge API Documentation](https://api.fieldedge.com/docs)
-- [FieldEdge Developer Portal](https://developer.fieldedge.com)
-- [MCP Protocol Specification](https://modelcontextprotocol.io/)
-- [Claude Desktop Documentation](https://claude.ai/desktop)
+## Error Handling
 
-## 🤝 Contributing
+The client includes comprehensive error handling:
 
-Contributions are welcome! Please:
+- Authentication errors (401)
+- Permission errors (403)
+- Not found errors (404)
+- Rate limiting (429)
+- Server errors (5xx)
+- Network errors
 
-1. Fork the repo
-2. Create a feature branch (`git checkout -b feature/amazing-tool`)
-3. Commit your changes (`git commit -m 'Add amazing tool'`)
-4. Push to the branch (`git push origin feature/amazing-tool`)
-5. Open a Pull Request
+## Rate Limiting
 
-## 📄 License
+Automatic rate limit tracking and retry logic included. The client monitors rate limit headers and automatically waits when limits are approached.
 
-MIT License - see [LICENSE](LICENSE) for details
+## TypeScript Support
 
-## 🙏 Credits
+Full TypeScript support with comprehensive type definitions for:
 
-Built by [MCPEngage](https://mcpengage.com) — AI infrastructure for field service and business software.
+- All API request/response types
+- Tool input schemas
+- Error types
+- Configuration options
 
-Want more MCP servers? Check out our [full catalog](https://mcpengage.com) covering 30+ business platforms including Housecall Pro, Jobber, ServiceTitan, and more.
+## Contributing
 
----
+Issues and pull requests welcome at [github.com/BusyBee3333/mcpengine](https://github.com/BusyBee3333/mcpengine)
 
-**Questions?** Open an issue or join our [Discord community](https://discord.gg/mcpengage).
+## License
+
+MIT
+
+## Support
+
+For API access and documentation, visit [docs.api.fieldedge.com](https://docs.api.fieldedge.com)
